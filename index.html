@@ -1,13 +1,401 @@
-You're right, let me make it simple. Just replace the entire `index.html` content with this fixed version — I'll prepare the complete file for you.
+Sorry! Here it is — select all and copy:
 
-Give me one moment to generate it.Download this file. Then do these 3 simple steps:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WorkTrack</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="WorkTrack">
+<meta name="theme-color" content="#00b894">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--acc:#00b894;--acc2:#00a381;--danger:#e17055;--warn:#BA7517;--blue:#185FA5;--purple:#3C3489;--text:#1a1a1a;--muted:#666;--border:#e0e0e0;--bg:#f7f8fa;--card:#fff;--radius:10px;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.screen{display:none;min-height:100vh;}.screen.active{display:block;}
+.auth-page{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#f7f8fa 0%,#e8f5f1 100%);padding:1rem;}
+.auth-box{background:var(--card);border-radius:16px;padding:2rem;width:100%;max-width:400px;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+.auth-logo h1{font-size:28px;font-weight:700;color:var(--acc);letter-spacing:-1px;text-align:center;}
+.auth-logo p{font-size:13px;color:var(--muted);margin-top:4px;text-align:center;margin-bottom:1.5rem;}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#f0f0f0;border-radius:8px;padding:4px;margin-bottom:1.25rem;}
+.auth-tab{padding:8px;text-align:center;border-radius:6px;font-size:14px;cursor:pointer;color:var(--muted);}
+.auth-tab.active{background:#fff;color:var(--text);font-weight:500;box-shadow:0 1px 4px rgba(0,0,0,0.1);}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+input,select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;background:#fff;color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--acc);}
+textarea{resize:vertical;min-height:72px;}
+.btn{width:100%;padding:11px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;}
+.btn:active{transform:scale(0.98);}
+.btn-green{background:var(--acc);color:#fff;}.btn-green:hover{background:var(--acc2);}
+.btn-red{background:var(--danger);color:#fff;}
+.btn-outline{background:#fff;color:var(--text);border:1.5px solid var(--border);}
+.btn-sm{width:auto;padding:6px 14px;font-size:12px;}
+.err{font-size:12px;color:var(--danger);margin-top:8px;text-align:center;min-height:18px;}
+.ok{font-size:12px;color:var(--acc);margin-top:8px;text-align:center;}
+.pending-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem;}
+.pending-box{background:var(--card);border-radius:16px;padding:2rem;max-width:380px;width:100%;text-align:center;}
+.top-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-brand{font-size:18px;font-weight:700;color:var(--acc);}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.logout-btn{font-size:12px;color:var(--muted);cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:6px;}
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+.b-green{background:#E1F5EE;color:#0F6E56;}.b-amber{background:#FAEEDA;color:#854F0B;}.b-red{background:#FCEBEB;color:#A32D2D;}
+.b-blue{background:#E6F1FB;color:#185FA5;}.b-gray{background:#f0f0f0;color:#666;}.b-purple{background:#EEEDFE;color:#3C3489;}
+.page-wrap{max-width:680px;margin:0 auto;padding:1.25rem 1rem;}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1.25rem;margin-bottom:1rem;}
+.card h3{font-size:15px;font-weight:600;margin-bottom:1rem;}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:1.25rem;}
+.metric{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1rem;}
+.m-label{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.m-val{font-size:24px;font-weight:700;}.m-val.green{color:var(--acc);}.m-val.amber{color:var(--warn);}.m-val.blue{color:var(--blue);}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #f0f0f0;}
+.row:last-child{border-bottom:none;}
+.row-left{flex:1;min-width:0;}
+.row-name{font-size:14px;font-weight:500;}.row-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.empty{text-align:center;color:var(--muted);padding:2rem;font-size:13px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:520px){.two-col{grid-template-columns:1fr;}}
+.tab-bar{display:flex;gap:0;flex-wrap:nowrap;padding:0 8px;background:#fff;border-bottom:1px solid var(--border);overflow-x:auto;}
+.tab-bar button{padding:12px 12px;border:none;background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0;}
+.tab-bar button.active{color:var(--acc);border-bottom-color:var(--acc);}
+.sec{display:none;}.sec.active{display:block;}
+.clock-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:2rem;margin-bottom:1rem;text-align:center;}
+.clock-status{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.cs-in{color:var(--acc);}.cs-out{color:var(--muted);}
+.clock-time{font-size:48px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-2px;margin-bottom:8px;}
+.clock-meta{font-size:13px;color:var(--muted);margin-bottom:20px;min-height:18px;}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.loc-opt{border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;}
+.loc-opt.sel{border-color:var(--acc);background:#E1F5EE;}
+.inner-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1rem;overflow-x:auto;}
+.itab{padding:9px 14px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;}
+.itab.active{color:var(--acc);border-bottom-color:var(--acc);}
+.note-item{padding:12px;background:#f9f9f9;border-radius:8px;margin-bottom:8px;}
+.avatar{width:36px;height:36px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--acc);flex-shrink:0;}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem;padding:1rem;background:#f9f9f9;border-radius:10px;}
+.fgroup{display:flex;flex-direction:column;gap:4px;}
+.fgroup label{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;}
+.fgroup select,.fgroup input[type=date]{width:auto;font-size:13px;padding:7px 10px;}
+.settings-row{display:flex;align-items:flex-start;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f0f0f0;gap:12px;}
+.settings-row:last-child{border-bottom:none;}
+.inline-edit{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.inline-edit input{width:150px;padding:7px 10px;font-size:13px;}
+.stat-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13px;}
+.stat-row:last-child{border-bottom:none;}
+.cat-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;background:#f0f0f0;font-size:13px;font-weight:500;margin:4px;cursor:pointer;border:1.5px solid transparent;}
+.cat-pill.active{background:#E1F5EE;color:#0F6E56;border-color:var(--acc);}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:12px;background:#f9f9f9;border-radius:8px;margin-bottom:8px;transition:opacity .3s;}
+.check-item.done{opacity:.4;}
+.check-item input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--acc);flex-shrink:0;}
+.check-item .ci-name{font-size:14px;font-weight:500;}
+.check-item .ci-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+.gps-banner{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;margin-bottom:1rem;font-size:13px;font-weight:500;}
+.gps-ok{background:#E1F5EE;color:#0F6E56;}.gps-fail{background:#FCEBEB;color:#A32D2D;}.gps-checking{background:#FAEEDA;color:#854F0B;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;}
+.toggle{position:relative;width:44px;height:24px;}
+.toggle input{opacity:0;width:0;height:0;}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;border-radius:24px;transition:.3s;}
+.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s;}
+input:checked+.slider{background:var(--acc);}
+input:checked+.slider:before{transform:translateX(20px);}
+.biz-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:10px;}
+.biz-card .bc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+.biz-card .bc-name{font-size:16px;font-weight:700;}
+.biz-card .bc-meta{font-size:12px;color:var(--muted);margin-top:3px;}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;}
+.toast.show{opacity:1;}
+.loading{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+.spinner{width:40px;height:40px;border:3px solid #e0e0e0;border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="screen active" id="screen-loading"><div class="loading"><div class="spinner"></div></div></div>
+<div class="screen" id="screen-auth">
+  <div class="auth-page"><div class="auth-box">
+    <div class="auth-logo"><h1>WorkTrack</h1><p>Workforce management platform</p></div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="atab-in" onclick="authTab('in')">Sign in</div>
+      <div class="auth-tab" id="atab-up" onclick="authTab('up')">Sign up</div>
+    </div>
+    <div id="af-in">
+      <div class="field"><label>Email</label><input type="email" id="li-email" placeholder="you@email.com"/></div>
+      <div class="field"><label>Password</label><input type="password" id="li-pass" placeholder="••••••••"/></div>
+      <button class="btn btn-green" onclick="doLogin()">Sign in</button>
+      <div class="err" id="li-err"></div>
+    </div>
+    <div id="af-up" style="display:none;">
+      <div class="field"><label>Full name</label><input type="text" id="su-name" placeholder="Your name"/></div>
+      <div class="field"><label>Email</label><input type="email" id="su-email" placeholder="you@email.com"/></div>
+      <div class="field"><label>Password</label><input type="password" id="su-pass" placeholder="Min 6 characters"/></div>
+      <button class="btn btn-green" onclick="doSignup()">Request access</button>
+      <div class="err" id="su-err"></div>
+    </div>
+  </div></div>
+</div>
+<div class="screen" id="screen-pending">
+  <div class="pending-page"><div class="pending-box">
+    <div style="font-size:48px;margin-bottom:16px;">⏳</div>
+    <h2 style="font-size:18px;margin-bottom:8px;">Access pending</h2>
+    <p style="font-size:14px;color:var(--muted);line-height:1.6;">Your account is awaiting admin approval.</p>
+    <br><button class="btn btn-outline" style="width:auto;padding:9px 24px;" onclick="doLogout()">Back</button>
+  </div></div>
+</div>
+<div class="screen" id="screen-worker">
+  <div class="top-nav">
+    <div class="nav-left"><div class="nav-brand">WorkTrack</div><span class="badge b-green" id="w-loc-badge"></span></div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:13px;color:var(--muted);" id="w-name-disp"></span>
+      <div class="logout-btn" onclick="doLogout()">Sign out</div>
+    </div>
+  </div>
+  <div class="page-wrap">
+    <div id="w-loc-chooser" style="display:none;" class="card">
+      <h3>Choose your location</h3>
+      <div class="loc-grid" id="w-loc-opts"></div>
+      <button class="btn btn-green" onclick="confirmLoc()">Confirm & continue</button>
+    </div>
+    <div id="w-main" style="display:none;">
+      <div id="w-gps-banner" style="display:none;"></div>
+      <div class="clock-card">
+        <div class="clock-status cs-out" id="w-cs-status">Not clocked in</div>
+        <div class="clock-time" id="w-cs-time">00:00:00</div>
+        <div class="clock-meta" id="w-cs-meta"></div>
+        <button class="btn btn-green" id="w-clock-btn" onclick="toggleClock()">Clock in</button>
+      </div>
+      <div class="inner-tabs">
+        <div class="itab active" onclick="wTab('items',this)">Missing item</div>
+        <div class="itab" onclick="wTab('request',this)">Customer request</div>
+        <div class="itab" onclick="wTab('note',this)">Note / Incident</div>
+        <div class="itab" onclick="wTab('hist',this)">My logs today</div>
+      </div>
+      <div id="wt-items"><div class="card"><h3>Add missing item</h3>
+        <div class="field"><label>Category (store)</label><select id="w-item-cat"><option value="">Select category...</option></select></div>
+        <div class="field"><label>Item name</label><input type="text" id="w-item-name" placeholder="What's missing?"/></div>
+        <div class="field"><label>Quantity (optional)</label><input type="text" id="w-item-qty" placeholder="e.g. 2 boxes"/></div>
+        <div class="field"><label>Notes (optional)</label><textarea id="w-item-note" placeholder="Any extra details..."></textarea></div>
+        <button class="btn btn-green" onclick="addItem()">Save item</button>
+      </div></div>
+      <div id="wt-request" style="display:none;"><div class="card"><h3>Customer request</h3>
+        <div class="field"><label>Details</label><textarea id="w-req-text" placeholder="What did the customer ask for?"></textarea></div>
+        <button class="btn btn-green" onclick="submitNote('customer_request','w-req-text')">Save request</button>
+      </div></div>
+      <div id="wt-note" style="display:none;"><div class="card"><h3>Note / Incident</h3>
+        <div class="field"><label>Type</label><select id="w-note-type"><option value="general">General note</option><option value="incident">Incident report</option></select></div>
+        <div class="field"><label>Details</label><textarea id="w-gen-text" placeholder="Write your note..."></textarea></div>
+        <button class="btn btn-green" onclick="submitNoteType()">Save note</button>
+      </div></div>
+      <div id="wt-hist" style="display:none;"><div class="card"><h3>My logs today</h3><div id="w-hist-list"></div></div></div>
+    </div>
+    <div id="w-noaccess" style="display:none;" class="card"><div class="empty">No location assigned yet.<br>Contact your admin.</div></div>
+  </div>
+</div>
+<div class="screen" id="screen-admin">
+  <div class="top-nav">
+    <div class="nav-left"><div class="nav-brand">WorkTrack</div><span class="badge b-blue" id="a-biz-badge"></span></div>
+    <div style="display:flex;align-items:center;gap:8px;"><span id="a-plan-disp"></span><div class="logout-btn" onclick="doLogout()">Sign out</div></div>
+  </div>
+  <div class="tab-bar" id="a-tab-bar">
+    <button class="active" onclick="adminTab('overview',this)">Overview</button>
+    <button onclick="adminTab('shopping',this)">Shopping list</button>
+    <button onclick="adminTab('workers',this)">Workers</button>
+    <button onclick="adminTab('timesheets',this)">Timesheets</button>
+    <button onclick="adminTab('logs',this)">Logs</button>
+    <button onclick="adminTab('reports',this)">Reports</button>
+    <button onclick="adminTab('settings',this)">Settings</button>
+  </div>
+  <div class="page-wrap">
+    <div class="sec active" id="asec-overview">
+      <div class="metric-grid" id="a-ov-metrics"></div>
+      <div class="two-col">
+        <div class="card"><h3>On shift now</h3><div id="a-ov-active"></div></div>
+        <div class="card"><h3>Pending approvals</h3><div id="a-ov-pending"></div></div>
+      </div>
+      <div class="card"><h3>Open missing items</h3><div id="a-ov-items"></div></div>
+    </div>
+    <div class="sec" id="asec-shopping"><div class="card"><h3>Filter by category</h3>
+      <div id="a-shop-cats" style="margin-bottom:1rem;flex-wrap:wrap;display:flex;"></div>
+      <div id="a-shop-list"></div>
+    </div></div>
+    <div class="sec" id="asec-workers">
+      <div class="card"><h3>Pending approval</h3><div id="a-w-pending"></div></div>
+      <div class="card"><h3>Active workers</h3><div id="a-w-active"></div></div>
+    </div>
+    <div class="sec" id="asec-timesheets">
+      <div class="filter-bar">
+        <div class="fgroup"><label>Location</label><select id="a-ts-loc" onchange="renderAdminTS()"><option value="all">All</option></select></div>
+        <div class="fgroup"><label>Period</label><select id="a-ts-mode" onchange="tsMode()"><option value="today">Today</option><option value="specific">Specific date</option><option value="range">Date range</option><option value="all">All records</option></select></div>
+        <div class="fgroup" id="a-ts-dv" style="display:none;"><label>Date</label><input type="date" id="a-ts-date" onchange="renderAdminTS()"/></div>
+        <div class="fgroup" id="a-ts-rv1" style="display:none;"><label>From</label><input type="date" id="a-ts-from" onchange="renderAdminTS()" style="width:130px;"/></div>
+        <div class="fgroup" id="a-ts-rv2" style="display:none;"><label>To</label><input type="date" id="a-ts-to" onchange="renderAdminTS()" style="width:130px;"/></div>
+      </div>
+      <div class="card"><div id="a-ts-list"></div></div>
+    </div>
+    <div class="sec" id="asec-logs">
+      <div class="filter-bar">
+        <div class="fgroup"><label>Location</label><select id="a-lg-loc" onchange="renderAdminLogs()"><option value="all">All</option></select></div>
+        <div class="fgroup"><label>Type</label><select id="a-lg-type" onchange="renderAdminLogs()"><option value="all">All</option><option value="missing_item">Missing item</option><option value="customer_request">Customer request</option><option value="general">General note</option><option value="incident">Incident</option></select></div>
+        <div class="fgroup"><label>Period</label><select id="a-lg-mode" onchange="lgMode()"><option value="today">Today</option><option value="specific">Specific date</option><option value="all">All</option></select></div>
+        <div class="fgroup" id="a-lg-dv" style="display:none;"><label>Date</label><input type="date" id="a-lg-date" onchange="renderAdminLogs()"/></div>
+      </div>
+      <div class="card"><div id="a-lg-list"></div></div>
+    </div>
+    <div class="sec" id="asec-reports">
+      <div class="filter-bar">
+        <div class="fgroup"><label>Location</label><select id="a-rp-loc" onchange="renderAdminReports()"><option value="all">All</option></select></div>
+        <div class="fgroup"><label>Period</label><select id="a-rp-period" onchange="renderAdminReports()"><option value="day">Today</option><option value="week">This week</option><option value="month">This month</option></select></div>
+      </div>
+      <div class="two-col">
+        <div class="card"><h3>Work hours</h3><div id="a-rp-hours"></div></div>
+        <div class="card"><h3>Items & notes</h3><div id="a-rp-items"></div></div>
+      </div>
+      <div class="card"><h3>All entries</h3><div id="a-rp-detail"></div></div>
+    </div>
+    <div class="sec" id="asec-settings">
+      <div class="card"><h3>Clock-in method</h3>
+        <div class="toggle-row">
+          <div><div style="font-size:14px;font-weight:500;">Require GPS to clock in</div><div style="font-size:12px;color:var(--muted);margin-top:2px;">Workers must be within 100m of location</div></div>
+          <label class="toggle"><input type="checkbox" id="a-gps-toggle" onchange="saveGpsSetting()"/><span class="slider"></span></label>
+        </div>
+      </div>
+      <div class="card"><h3>Locations & addresses</h3><div id="a-loc-settings"></div></div>
+      <div class="card"><h3>Categories</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:1rem;">Workers pick a category when logging missing items (e.g. Home Depot, Costco)</p>
+        <div id="a-cats-list" style="margin-bottom:1rem;display:flex;flex-wrap:wrap;"></div>
+        <div style="display:flex;gap:8px;"><input type="text" id="a-new-cat" placeholder="New category name..."/><button class="btn btn-green btn-sm" onclick="addCategory()">Add</button></div>
+      </div>
+      <div class="card"><h3>Business info</h3>
+        <div class="settings-row">
+          <div><div style="font-size:14px;font-weight:500;">Business name</div><div style="font-size:12px;color:var(--muted);" id="a-biz-name-disp"></div></div>
+          <div class="inline-edit"><input type="text" id="a-biz-name-inp" style="width:150px;"/><button class="btn btn-green btn-sm" onclick="saveBizName()">Save</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="screen" id="screen-super">
+  <div class="top-nav">
+    <div class="nav-left"><div class="nav-brand">WorkTrack</div><span class="badge b-purple">Super admin</span></div>
+    <div class="logout-btn" onclick="doLogout()">Sign out</div>
+  </div>
+  <div class="tab-bar">
+    <button class="active" onclick="superTab('businesses',this)">Businesses</button>
+    <button onclick="superTab('add',this)">Add business</button>
+  </div>
+  <div class="page-wrap">
+    <div class="sec active" id="ssec-businesses">
+      <div class="metric-grid" id="s-metrics"></div>
+      <div id="s-biz-list"></div>
+    </div>
+    <div class="sec" id="ssec-add"><div class="card" style="max-width:480px;">
+      <h3>Add new business</h3>
+      <div class="field"><label>Business name</label><input type="text" id="nb-name" placeholder="e.g. Corner Cafe"/></div>
+      <div class="field"><label>Admin name</label><input type="text" id="nb-aname" placeholder="Owner's full name"/></div>
+      <div class="field"><label>Admin email</label><input type="email" id="nb-email" placeholder="owner@business.com"/></div>
+      <div class="field"><label>Admin password</label><input type="password" id="nb-pass" placeholder="Min 6 characters"/></div>
+      <div class="two-col">
+        <div class="field"><label>Location 1 name</label><input type="text" id="nb-l1" placeholder="e.g. Main Street"/></div>
+        <div class="field"><label>Location 1 address</label><input type="text" id="nb-a1" placeholder="Full address"/></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label>Location 2 name (optional)</label><input type="text" id="nb-l2" placeholder="e.g. Downtown"/></div>
+        <div class="field"><label>Location 2 address</label><input type="text" id="nb-a2" placeholder="Full address"/></div>
+      </div>
+      <div class="field"><label>Plan</label><select id="nb-plan"><option value="free">Free trial</option><option value="basic">Basic</option><option value="pro">Pro</option></select></div>
+      <button class="btn btn-green" onclick="addBusiness()">Create business</button>
+      <div class="err" id="nb-err"></div>
+      <div class="ok" id="nb-ok" style="display:none;">✓ Business created!</div>
+    </div></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import{getFirestore,doc,setDoc,getDoc,collection,query,where,getDocs,addDoc,updateDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyDLGr5a4zKNUurwsW0MK21q8H74CwqUbxM",authDomain:"worktrack-220ab.firebaseapp.com",projectId:"worktrack-220ab",storageBucket:"worktrack-220ab.firebasestorage.app",messagingSenderId:"836534804220",appId:"1:836534804220:web:5e6964418f3318b6210179"});
+const auth=getAuth(app),db=getFirestore(app);
+const todayStr=()=>new Date().toISOString().slice(0,10);
+const fmtT=ts=>new Date(ts).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+const fmtD=ts=>new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const dur=ms=>{const s=Math.floor(ms/1000),m=Math.floor(s/60),h=Math.floor(m/60);return String(h).padStart(2,'0')+':'+String(m%60).padStart(2,'0')+':'+String(s%60).padStart(2,'0');};
+const hrsMs=ms=>(ms/3600000).toFixed(1);
+const tlabel=t=>({missing_item:'Missing item',customer_request:'Customer request',general:'General note',incident:'Incident'}[t]||t);
+const tbadge=t=>({missing_item:'b-amber',customer_request:'b-blue',general:'b-green',incident:'b-red'}[t]||'b-gray');
+const planBadge=p=>({free:'b-blue',basic:'b-green',pro:'b-purple'}[p]||'b-gray');
+const planLabel=p=>({free:'Free trial',basic:'Basic',pro:'Pro'}[p]||p);
+const initials=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+function showScreen(s){document.querySelectorAll('.screen').forEach(e=>e.classList.remove('active'));document.getElementById('screen-'+s).classList.add('active');}
+let CU=null,CUD=null,CBiz=null,CS=null,CL=null,CLD=null,timerInt=null,shopCat=null;
+function dist(la1,lo1,la2,lo2){const R=6371000,dL=(la2-la1)*Math.PI/180,dO=(lo2-lo1)*Math.PI/180,a=Math.sin(dL/2)**2+Math.cos(la1*Math.PI/180)*Math.cos(la2*Math.PI/180)*Math.sin(dO/2)**2;return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));}
+async function geocode(addr){try{const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&q='+encodeURIComponent(addr)),d=await r.json();if(d&&d[0])return{lat:parseFloat(d[0].lat),lng:parseFloat(d[0].lon)};}catch(e){}return null;}
+async function checkGPS(){return new Promise(resolve=>{if(!CBiz||!CBiz.requireGps||!CLD||!CLD.address)return resolve({ok:true});const b=document.getElementById('w-gps-banner');b.style.display='flex';b.className='gps-banner gps-checking';b.textContent='Checking your location...';navigator.geolocation.getCurrentPosition(async pos=>{const c=await geocode(CLD.address);if(!c){b.style.display='none';return resolve({ok:true});}const d=dist(pos.coords.latitude,pos.coords.longitude,c.lat,c.lng);if(d<=100){b.className='gps-banner gps-ok';b.textContent='You are at the work location';resolve({ok:true});}else{b.className='gps-banner gps-fail';b.textContent='You are '+Math.round(d)+'m away. Must be within 100m to clock in.';resolve({ok:false});}},()=>{b.style.display='none';resolve({ok:true});},{timeout:10000});});}
+const authTimeout=setTimeout(()=>{showScreen('auth');},6000);
+onAuthStateChanged(auth,async user=>{
+  clearTimeout(authTimeout);
+  if(!user){showScreen('auth');return;}
+  const us=await getDoc(doc(db,'users',user.uid));
+  if(!us.exists()){await signOut(auth);showScreen('auth');return;}
+  CU=user;CUD=us.data();
+  if(CUD.role==='super'){await loadSuper();showScreen('super');}
+  else if(CUD.role==='admin'){await loadAdmin();showScreen('admin');}
+  else if(CUD.status==='pending')showScreen('pending');
+  else{await setupWorker();showScreen('worker');}
+});
+window.authTab=t=>{document.getElementById('af-in').style.display=t==='in'?'block':'none';document.getElementById('af-up').style.display=t==='up'?'block':'none';document.getElementById('atab-in').classList.toggle('active',t==='in');document.getElementById('atab-up').classList.toggle('active',t==='up');};
+window.doLogin=async()=>{const e=document.getElementById('li-email').value.trim(),p=document.getElementById('li-pass').value;document.getElementById('li-err').textContent='';try{await signInWithEmailAndPassword(auth,e,p);}catch(e){document.getElementById('li-err').textContent='Invalid email or password.';}};
+window.doSignup=async()=>{const n=document.getElementById('su-name').value.trim(),e=document.getElementById('su-email').value.trim(),p=document.getElementById('su-pass').value;document.getElementById('su-err').textContent='';if(!n||!e||!p){document.getElementById('su-err').textContent='Please fill all fields.';return;}if(p.length<6){document.getElementById('su-err').textContent='Password must be 6+ characters.';return;}try{const bs=await getDocs(collection(db,'businesses')),fb=bs.docs[0];const cr=await createUserWithEmailAndPassword(auth,e,p);await setDoc(doc(db,'users',cr.user.uid),{name:n,email:e,role:'worker',status:'pending',bizId:fb?fb.id:null,locations:[],createdAt:serverTimestamp()});}catch(e){document.getElementById('su-err').textContent=e.message.includes('email-already')?'Email already registered.':e.message;}};
+window.doLogout=async()=>{if(CS&&!CS.end){CS.end=Date.now();await updateDoc(doc(db,'sessions',CS.id),{end:CS.end});}clearInterval(timerInt);CU=null;CUD=null;CBiz=null;CS=null;CL=null;CLD=null;document.getElementById('li-email').value='';document.getElementById('li-pass').value='';await signOut(auth);};
+async function setupWorker(){document.getElementById('w-name-disp').textContent=CUD.name;['w-loc-chooser','w-main','w-noaccess'].forEach(id=>document.getElementById(id).style.display='none');const locs=CUD.locations||[];if(!locs.length){document.getElementById('w-noaccess').style.display='block';return;}const bs=await getDoc(doc(db,'businesses',CUD.bizId));CBiz={id:bs.id,...bs.data()};if(locs.length===1){CL=locs[0];await activateWorker();}else showLocChooser(locs);}
+function showLocChooser(locs){document.getElementById('w-loc-chooser').style.display='block';document.getElementById('w-loc-opts').innerHTML=locs.map(l=>'<div class="loc-opt" id="lopt-'+l.replace(/\s/g,'_')+'" onclick="pickLoc(\''+l+'\')"><div style="font-size:14px;font-weight:600;">'+l+'</div><div style="font-size:12px;color:var(--muted);margin-top:3px;">Tap to select</div></div>').join('');}
+window.pickLoc=l=>{document.querySelectorAll('.loc-opt').forEach(e=>e.classList.remove('sel'));const el=document.getElementById('lopt-'+l.replace(/\s/g,'_'));if(el)el.classList.add('sel');CL=l;};
+window.confirmLoc=async()=>{if(!CL){showToast('Please select a location.');return;}document.getElementById('w-loc-chooser').style.display='none';await activateWorker();};
+async function activateWorker(){document.getElementById('w-loc-badge').textContent=CL;document.getElementById('w-main').style.display='block';CLD=(CBiz.locationData||{})[CL]||{};const cats=CBiz.categories||[];const sel=document.getElementById('w-item-cat');sel.innerHTML='<option value="">Select category...</option>'+cats.map(c=>'<option value="'+c+'">'+c+'</option>').join('');CS=null;updateClockUI();renderWHist();}
+window.toggleClock=async()=>{if(!CS||CS.end){const g=await checkGPS();if(!g.ok){showToast('You must be at the work location to clock in.');return;}const ref=await addDoc(collection(db,'sessions'),{userId:CU.uid,name:CUD.name,bizId:CUD.bizId,location:CL,date:todayStr(),start:Date.now(),end:null});CS={id:ref.id,start:Date.now(),end:null};clearInterval(timerInt);timerInt=setInterval(()=>{if(CS&&!CS.end)document.getElementById('w-cs-time').textContent=dur(Date.now()-CS.start);},1000);}else{CS.end=Date.now();await updateDoc(doc(db,'sessions',CS.id),{end:CS.end});clearInterval(timerInt);}updateClockUI();};
+function updateClockUI(){const btn=document.getElementById('w-clock-btn'),st=document.getElementById('w-cs-status'),mt=document.getElementById('w-cs-meta');if(CS&&!CS.end){btn.textContent='Clock out';btn.className='btn btn-red';st.textContent='Currently clocked in';st.className='clock-status cs-in';mt.textContent='Clocked in at '+fmtT(CS.start)+' - '+CL;document.getElementById('w-cs-time').textContent=dur(Date.now()-CS.start);}else{btn.textContent='Clock in';btn.className='btn btn-green';st.textContent='Not clocked in';st.className='clock-status cs-out';mt.textContent=CS?'Last: '+fmtT(CS.start)+'-'+fmtT(CS.end)+' ('+dur(CS.end-CS.start)+')':'';document.getElementById('w-cs-time').textContent='00:00:00';}}
+window.wTab=(t,el)=>{document.querySelectorAll('.itab').forEach(e=>e.classList.remove('active'));el.classList.add('active');['items','request','note','hist'].forEach(id=>document.getElementById('wt-'+id).style.display=id===t?'block':'none');if(t==='hist')renderWHist();};
+window.addItem=async()=>{if(!CS||CS.end){showToast('Clock in first to log items.');return;}const cat=document.getElementById('w-item-cat').value,name=document.getElementById('w-item-name').value.trim();if(!cat){showToast('Please select a category.');return;}if(!name){showToast('Please enter the item name.');return;}await addDoc(collection(db,'items'),{userId:CU.uid,workerName:CUD.name,bizId:CUD.bizId,location:CL,date:todayStr(),category:cat,name,qty:document.getElementById('w-item-qty').value.trim(),notes:document.getElementById('w-item-note').value.trim(),fulfilled:false,ts:Date.now()});document.getElementById('w-item-name').value='';document.getElementById('w-item-qty').value='';document.getElementById('w-item-note').value='';showToast('Item saved!');};
+window.submitNote=async(type,fid)=>{if(!CS||CS.end){showToast('Clock in first.');return;}const text=document.getElementById(fid).value.trim();if(!text){showToast('Please enter details.');return;}await addDoc(collection(db,'notes'),{userId:CU.uid,name:CUD.name,bizId:CUD.bizId,location:CL,date:todayStr(),type,text,ts:Date.now()});document.getElementById(fid).value='';showToast('Saved!');};
+window.submitNoteType=()=>submitNote(document.getElementById('w-note-type').value,'w-gen-text');
+async function renderWHist(){const list=document.getElementById('w-hist-list');list.innerHTML='<div class="empty">Loading...</div>';const[iS,nS]=await Promise.all([getDocs(query(collection(db,'items'),where('userId','==',CU.uid),where('date','==',todayStr()))),getDocs(query(collection(db,'notes'),where('userId','==',CU.uid),where('date','==',todayStr())))]);const all=[...iS.docs.map(d=>({...d.data(),_t:'item'})),...nS.docs.map(d=>({...d.data(),_t:'note'}))].sort((a,b)=>b.ts-a.ts);list.innerHTML=all.length?all.map(e=>e._t==='item'?'<div class="note-item"><div style="font-size:14px;font-weight:500;">'+e.name+(e.qty?' x '+e.qty:'')+'</div><div style="font-size:12px;color:var(--muted);margin-top:4px;"><span class="badge b-amber">Missing item</span> - '+e.category+' - '+fmtT(e.ts)+'</div></div>':'<div class="note-item"><div style="font-size:14px;">'+e.text+'</div><div style="font-size:12px;color:var(--muted);margin-top:4px;"><span class="badge '+tbadge(e.type)+'">'+tlabel(e.type)+'</span> - '+fmtT(e.ts)+'</div></div>').join(''):'<div class="empty">No entries yet today.</div>';}
+async function loadAdmin(){const bs=await getDoc(doc(db,'businesses',CUD.bizId));CBiz={id:bs.id,...bs.data()};document.getElementById('a-biz-badge').textContent=CBiz.name;document.getElementById('a-plan-disp').innerHTML='<span class="badge '+planBadge(CBiz.plan)+'">'+planLabel(CBiz.plan)+'</span>';['a-ts-loc','a-lg-loc','a-rp-loc'].forEach(id=>{const sel=document.getElementById(id);sel.innerHTML='<option value="all">All locations</option>';(CBiz.locations||[]).forEach(l=>sel.innerHTML+='<option value="'+l+'">'+l+'</option>');});renderAdminOverview();}
+window.adminTab=(t,el)=>{document.querySelectorAll('#a-tab-bar button').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.querySelectorAll('#screen-admin .sec').forEach(s=>s.classList.remove('active'));document.getElementById('asec-'+t).classList.add('active');if(t==='overview')renderAdminOverview();if(t==='shopping')renderShop();if(t==='workers')renderAdminWorkers();if(t==='timesheets')renderAdminTS();if(t==='logs')renderAdminLogs();if(t==='reports')renderAdminReports();if(t==='settings')renderSettings();};
+async function renderAdminOverview(){const[wS,sS,nS,iS]=await Promise.all([getDocs(query(collection(db,'users'),where('bizId','==',CUD.bizId),where('role','==','worker'))),getDocs(query(collection(db,'sessions'),where('bizId','==',CUD.bizId))),getDocs(query(collection(db,'notes'),where('bizId','==',CUD.bizId),where('date','==',todayStr()))),getDocs(query(collection(db,'items'),where('bizId','==',CUD.bizId),where('fulfilled','==',false)))]);const workers=wS.docs.map(d=>({id:d.id,...d.data()})),sessions=sS.docs.map(d=>({id:d.id,...d.data()})),items=iS.docs.map(d=>({id:d.id,...d.data()}));const pending=workers.filter(w=>w.status==='pending'),active=sessions.filter(s=>!s.end),todayS=sessions.filter(s=>s.date===todayStr());document.getElementById('a-ov-metrics').innerHTML='<div class="metric"><div class="m-label">On shift</div><div class="m-val green">'+active.length+'</div></div><div class="metric"><div class="m-label">Shifts today</div><div class="m-val">'+todayS.length+'</div></div><div class="metric"><div class="m-label">Notes today</div><div class="m-val">'+nS.size+'</div></div><div class="metric"><div class="m-label">Open items</div><div class="m-val amber">'+items.length+'</div></div>';document.getElementById('a-ov-active').innerHTML=active.length?active.map(s=>'<div class="row"><div class="row-left"><div class="row-name">'+s.name+'</div><div class="row-sub">'+s.location+' since '+fmtT(s.start)+'</div></div><span class="badge b-green">Active</span></div>').join(''):'<div class="empty">Nobody on shift.</div>';document.getElementById('a-ov-pending').innerHTML=pending.length?pending.map(u=>'<div class="row"><div class="row-left"><div class="row-name">'+u.name+'</div><div class="row-sub">'+u.email+'</div></div><div style="display:flex;gap:6px;"><button class="btn btn-green btn-sm" onclick="approveW(\''+u.id+'\')">Approve</button><button class="btn btn-red btn-sm" onclick="denyW(\''+u.id+'\')">Deny</button></div></div>').join(''):'<div class="empty">No pending requests.</div>';document.getElementById('a-ov-items').innerHTML=items.length?items.slice(0,6).map(it=>'<div class="row"><div class="row-left"><div class="row-name">'+it.name+'</div><div class="row-sub">'+it.category+' - '+it.location+' - '+it.workerName+'</div></div><span class="badge b-amber">Needed</span></div>').join(''):'<div class="empty">All stocked up!</div>';}
+async function renderShop(){const snap=await getDocs(query(collection(db,'items'),where('bizId','==',CUD.bizId),where('fulfilled','==',false)));const items=snap.docs.map(d=>({id:d.id,...d.data()}));const cats=[...new Set(items.map(i=>i.category))];document.getElementById('a-shop-cats').innerHTML='<span class="cat-pill '+((!shopCat)?'active':'')+'" onclick="filterShop(null)" style="cursor:pointer;">All</span>'+cats.map(c=>'<span class="cat-pill '+(shopCat===c?'active':'')+'" onclick="filterShop(\''+c+'\')" style="cursor:pointer;">'+c+'</span>').join('');const filtered=shopCat?items.filter(i=>i.category===shopCat):items;if(!filtered.length){document.getElementById('a-shop-list').innerHTML='<div class="empty">No open items - everything is stocked!</div>';return;}const byLoc={};filtered.forEach(i=>{if(!byLoc[i.location])byLoc[i.location]=[];byLoc[i.location].push(i);});document.getElementById('a-shop-list').innerHTML=Object.entries(byLoc).map(([loc,locItems])=>'<div style="margin-bottom:1.5rem;"><div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #f0f0f0;">'+loc+'</div>'+locItems.map(it=>'<div class="check-item" id="ci-'+it.id+'"><input type="checkbox" onchange="fulfillItem(\''+it.id+'\',this)"/><div><div class="ci-name">'+it.name+(it.qty?' x '+it.qty:'')+'</div><div class="ci-meta"><span class="badge b-amber" style="font-size:10px;">'+it.category+'</span>'+(it.notes?' - '+it.notes:'')+' - '+it.workerName+'</div></div></div>').join('')+'</div>').join('');}
+window.filterShop=cat=>{shopCat=cat;renderShop();};
+window.fulfillItem=async(id,cb)=>{const el=document.getElementById('ci-'+id);el.classList.add('done');setTimeout(async()=>{await updateDoc(doc(db,'items',id),{fulfilled:true,fulfilledAt:Date.now()});showToast('Item fulfilled!');setTimeout(()=>renderShop(),400);},600);};
+async function renderAdminWorkers(){const snap=await getDocs(query(collection(db,'users'),where('bizId','==',CUD.bizId),where('role','==','worker')));const workers=snap.docs.map(d=>({id:d.id,...d.data()}));const pending=workers.filter(w=>w.status==='pending'),active=workers.filter(w=>w.status==='approved'),locs=CBiz.locations||[];document.getElementById('a-w-pending').innerHTML=pending.length?pending.map(u=>'<div class="row"><div style="display:flex;align-items:center;gap:10px;flex:1;"><div class="avatar">'+initials(u.name)+'</div><div class="row-left"><div class="row-name">'+u.name+'</div><div class="row-sub">'+u.email+'</div></div></div><div style="display:flex;gap:6px;"><button class="btn btn-green btn-sm" onclick="approveW(\''+u.id+'\')">Approve</button><button class="btn btn-red btn-sm" onclick="denyW(\''+u.id+'\')">Deny</button></div></div>').join(''):'<div class="empty">No pending requests.</div>';document.getElementById('a-w-active').innerHTML=active.length?active.map(u=>'<div class="row"><div style="display:flex;align-items:center;gap:10px;flex:1;"><div class="avatar">'+initials(u.name)+'</div><div class="row-left"><div class="row-name">'+u.name+'</div><div class="row-sub">'+u.email+'</div></div></div><div style="display:flex;gap:4px;flex-wrap:wrap;">'+locs.map(l=>'<span class="badge '+((u.locations||[]).includes(l)?'b-green':'b-gray')+'" style="cursor:pointer;" onclick="toggleWLoc(\''+u.id+'\',\''+l+'\',\''+JSON.stringify(u.locations||[]).replace(/'/g,"\\'")+'\')">'  +((u.locations||[]).includes(l)?'✓':'+')+' '+l+'</span>').join('')+'</div></div>').join(''):'<div class="empty">No active workers yet.</div>';}
+window.approveW=async id=>{await updateDoc(doc(db,'users',id),{status:'approved',locations:CBiz.locations.slice(0,1)});showToast('Worker approved!');renderAdminWorkers();renderAdminOverview();};
+window.denyW=async id=>{await updateDoc(doc(db,'users',id),{status:'denied'});showToast('Worker denied.');renderAdminWorkers();renderAdminOverview();};
+window.toggleWLoc=async(uid,loc,lj)=>{let locs=JSON.parse(lj);if(locs.includes(loc))locs=locs.filter(l=>l!==loc);else locs.push(loc);await updateDoc(doc(db,'users',uid),{locations:locs});renderAdminWorkers();};
+window.tsMode=()=>{const m=document.getElementById('a-ts-mode').value;document.getElementById('a-ts-dv').style.display=m==='specific'?'flex':'none';document.getElementById('a-ts-rv1').style.display=m==='range'?'flex':'none';document.getElementById('a-ts-rv2').style.display=m==='range'?'flex':'none';renderAdminTS();};
+window.lgMode=()=>{document.getElementById('a-lg-dv').style.display=document.getElementById('a-lg-mode').value==='specific'?'flex':'none';renderAdminLogs();};
+function filterDate(arr,mId,dId,fId,tId){const m=document.getElementById(mId).value;if(m==='today')return arr.filter(s=>s.date===todayStr());if(m==='all')return arr;if(m==='specific'){const v=document.getElementById(dId).value;return arr.filter(s=>s.date===v);}if(m==='range'){const f=document.getElementById(fId).value,t=document.getElementById(tId).value;return arr.filter(s=>(!f||s.date>=f)&&(!t||s.date<=t));}return arr;}
+window.renderAdminTS=async()=>{document.getElementById('a-ts-list').innerHTML='<div class="empty">Loading...</div>';const snap=await getDocs(query(collection(db,'sessions'),where('bizId','==',CUD.bizId)));let ss=snap.docs.map(d=>({id:d.id,...d.data()}));const loc=document.getElementById('a-ts-loc').value;if(loc!=='all')ss=ss.filter(s=>s.location===loc);ss=filterDate(ss,'a-ts-mode','a-ts-date','a-ts-from','a-ts-to');document.getElementById('a-ts-list').innerHTML=ss.length?ss.map(s=>'<div class="row"><div style="display:flex;align-items:center;gap:10px;flex:1;"><div class="avatar">'+initials(s.name)+'</div><div class="row-left"><div class="row-name">'+s.name+'</div><div class="row-sub">'+s.location+' - '+s.date+' - In: '+fmtT(s.start)+(s.end?' - Out: '+fmtT(s.end):'')+' </div></div></div>'+(s.end?'<span class="badge b-green">'+dur(s.end-s.start)+'</span>':'<span class="badge b-amber">Active</span>')+'</div>').join(''):'<div class="empty">No timesheets found.</div>';};
+window.renderAdminLogs=async()=>{document.getElementById('a-lg-list').innerHTML='<div class="empty">Loading...</div>';const[nS,iS]=await Promise.all([getDocs(query(collection(db,'notes'),where('bizId','==',CUD.bizId))),getDocs(query(collection(db,'items'),where('bizId','==',CUD.bizId)))]);const loc=document.getElementById('a-lg-loc').value,type=document.getElementById('a-lg-type').value;let all=[...nS.docs.map(d=>({...d.data(),_t:'note'})),...iS.docs.map(d=>({...d.data(),type:'missing_item',text:d.data().name,name:d.data().workerName,_t:'item'}))];if(loc!=='all')all=all.filter(n=>n.location===loc);if(type!=='all')all=all.filter(n=>n.type===type);all=filterDate(all,'a-lg-mode','a-lg-date',null,null);document.getElementById('a-lg-list').innerHTML=all.length?all.map(n=>'<div class="row"><div class="row-left"><div style="font-size:14px;">'+n.text+'</div><div class="row-sub">'+n.name+' - '+n.location+' - '+fmtD(n.ts)+' '+fmtT(n.ts)+'</div></div><span class="badge '+tbadge(n.type)+'" style="white-space:nowrap;margin-left:8px;">'+tlabel(n.type)+'</span></div>').join(''):'<div class="empty">No entries found.</div>';};
+window.renderAdminReports=async()=>{const loc=document.getElementById('a-rp-loc').value,period=document.getElementById('a-rp-period').value,now=new Date();const inP=d=>{if(period==='day')return d===todayStr();if(period==='week'){const s=new Date(now);s.setDate(now.getDate()-now.getDay());return d>=s.toISOString().slice(0,10)&&d<=todayStr();}if(period==='month')return d.slice(0,7)===todayStr().slice(0,7);return true;};const[sS,nS,iS]=await Promise.all([getDocs(query(collection(db,'sessions'),where('bizId','==',CUD.bizId))),getDocs(query(collection(db,'notes'),where('bizId','==',CUD.bizId))),getDocs(query(collection(db,'items'),where('bizId','==',CUD.bizId)))]);let ss=sS.docs.map(d=>d.data()).filter(s=>s.end&&(loc==='all'||s.location===loc)&&inP(s.date));let ns=nS.docs.map(d=>d.data()).filter(n=>(loc==='all'||n.location===loc)&&inP(n.date));let its=iS.docs.map(d=>d.data()).filter(i=>(loc==='all'||i.location===loc)&&inP(i.date));const byW={};ss.forEach(s=>{if(!byW[s.name])byW[s.name]={t:0,ss:[]};byW[s.name].t+=s.end-s.start;byW[s.name].ss.push(s);});document.getElementById('a-rp-hours').innerHTML=Object.keys(byW).length?'<div style="margin-bottom:1rem;"><div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Total per worker</div>'+Object.entries(byW).map(([n,d])=>'<div class="stat-row"><span style="color:var(--muted);">'+n+'</span><span style="font-weight:600;">'+hrsMs(d.t)+' hrs</span></div>').join('')+'</div><div><div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Clock in/out</div>'+ss.map(s=>'<div class="stat-row"><span style="color:var(--muted);">'+s.name+' - '+s.date+'</span><span style="font-weight:600;">'+fmtT(s.start)+'-'+fmtT(s.end)+'</span></div>').join('')+'</div>':'<div class="empty">No completed shifts.</div>';const counts={missing_item:its.length,customer_request:0,general:0,incident:0};ns.forEach(n=>counts[n.type]=(counts[n.type]||0)+1);document.getElementById('a-rp-items').innerHTML=Object.entries(counts).map(([t,c])=>'<div class="stat-row"><span><span class="badge '+tbadge(t)+'">'+tlabel(t)+'</span></span><span style="font-weight:600;">'+c+'</span></div>').join('')+'<div class="stat-row" style="border-top:1px solid #eee;margin-top:4px;"><span style="font-weight:600;">Total</span><span style="font-weight:600;">'+(ns.length+its.length)+'</span></div>';const allE=[...ns.map(n=>({...n,_t:'note'})),...its.map(i=>({...i,type:'missing_item',text:i.name,name:i.workerName,_t:'item'}))].sort((a,b)=>b.ts-a.ts);document.getElementById('a-rp-detail').innerHTML=allE.length?allE.map(n=>'<div class="row"><div class="row-left"><div style="font-size:14px;">'+n.text+'</div><div class="row-sub">'+n.name+' - '+n.location+' - '+fmtD(n.ts)+'</div></div><span class="badge '+tbadge(n.type)+'" style="white-space:nowrap;margin-left:8px;">'+tlabel(n.type)+'</span></div>').join(''):'<div class="empty">No entries in this period.</div>';};
+function renderSettings(){document.getElementById('a-biz-name-disp').textContent=CBiz.name;document.getElementById('a-biz-name-inp').value=CBiz.name;document.getElementById('a-gps-toggle').checked=!!CBiz.requireGps;const ld=CBiz.locationData||{};document.getElementById('a-loc-settings').innerHTML=(CBiz.locations||[]).map((l,i)=>'<div class="settings-row"><div><div style="font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:500;">Location '+(i+1)+'</div><div style="font-size:15px;font-weight:600;margin-top:3px;">'+l+'</div><div style="font-size:12px;color:var(--muted);">'+((ld[l]&&ld[l].address)||'No address set')+'</div></div><div style="display:flex;flex-direction:column;gap:6px;"><input type="text" id="ln-'+i+'" value="'+l+'" placeholder="Name" style="width:160px;"/><input type="text" id="la-'+i+'" value="'+((ld[l]&&ld[l].address)||'')+'" placeholder="Full address" style="width:160px;"/><button class="btn btn-green btn-sm" onclick="saveLocData('+i+')">Save</button></div></div>').join('');const cats=CBiz.categories||[];document.getElementById('a-cats-list').innerHTML=cats.length?cats.map((c,i)=>'<span class="cat-pill">'+c+' <span style="cursor:pointer;color:#999;" onclick="deleteCat('+i+')">x</span></span>').join(''):'<div style="font-size:13px;color:var(--muted);">No categories yet. Add one below.</div>';}
+window.saveGpsSetting=async()=>{const v=document.getElementById('a-gps-toggle').checked;await updateDoc(doc(db,'businesses',CBiz.id),{requireGps:v});CBiz.requireGps=v;showToast(v?'GPS enabled':'GPS disabled');};
+window.saveLocData=async i=>{const nn=document.getElementById('ln-'+i).value.trim(),na=document.getElementById('la-'+i).value.trim();if(!nn){showToast('Please enter a location name.');return;}const old=CBiz.locations[i];CBiz.locations[i]=nn;const ld=CBiz.locationData||{};if(old!==nn)delete ld[old];ld[nn]={address:na};await updateDoc(doc(db,'businesses',CBiz.id),{locations:CBiz.locations,locationData:ld});CBiz.locationData=ld;['a-ts-loc','a-lg-loc','a-rp-loc'].forEach(id=>{const sel=document.getElementById(id);sel.innerHTML='<option value="all">All</option>';CBiz.locations.forEach(l=>sel.innerHTML+='<option value="'+l+'">'+l+'</option>');});showToast('Location saved!');renderSettings();document.getElementById('a-biz-badge').textContent=CBiz.name;};
+window.addCategory=async()=>{const v=document.getElementById('a-new-cat').value.trim();if(!v){showToast('Enter a category name.');return;}const cats=CBiz.categories||[];if(cats.includes(v)){showToast('Already exists.');return;}cats.push(v);await updateDoc(doc(db,'businesses',CBiz.id),{categories:cats});CBiz.categories=cats;document.getElementById('a-new-cat').value='';showToast('Category added!');renderSettings();};
+window.deleteCat=async i=>{const cats=CBiz.categories||[];cats.splice(i,1);await updateDoc(doc(db,'businesses',CBiz.id),{categories:cats});CBiz.categories=cats;showToast('Category removed.');renderSettings();};
+window.saveBizName=async()=>{const v=document.getElementById('a-biz-name-inp').value.trim();if(!v)return;CBiz.name=v;await updateDoc(doc(db,'businesses',CBiz.id),{name:v});document.getElementById('a-biz-badge').textContent=v;document.getElementById('a-biz-name-disp').textContent=v;showToast('Saved!');};
+async function loadSuper(){const bs=await getDocs(collection(db,'businesses'));const biz=bs.docs.map(d=>({id:d.id,...d.data()}));const plans={free:0,basic:0,pro:0};biz.forEach(b=>plans[b.plan]=(plans[b.plan]||0)+1);document.getElementById('s-metrics').innerHTML='<div class="metric"><div class="m-label">Businesses</div><div class="m-val blue">'+biz.length+'</div></div><div class="metric"><div class="m-label">Free trial</div><div class="m-val">'+(plans.free||0)+'</div></div><div class="metric"><div class="m-label">Basic</div><div class="m-val green">'+(plans.basic||0)+'</div></div><div class="metric"><div class="m-label">Pro</div><div class="m-val amber">'+(plans.pro||0)+'</div></div>';const wc={};const ws=await getDocs(query(collection(db,'users'),where('role','==','worker')));ws.docs.forEach(d=>{const b=d.data().bizId;wc[b]=(wc[b]||0)+1;});document.getElementById('s-biz-list').innerHTML=biz.map(b=>'<div class="biz-card"><div class="bc-top"><div><div class="bc-name">'+b.name+'</div><div class="bc-meta">'+(b.locations||[]).join(' - ')+'</div></div><select style="width:auto;margin:0;font-size:12px;padding:5px 10px;border-radius:6px;" onchange="changePlan(\''+b.id+'\',this.value)"><option value="free" '+(b.plan==='free'?'selected':'')+'>Free trial</option><option value="basic" '+(b.plan==='basic'?'selected':'')+'>Basic</option><option value="pro" '+(b.plan==='pro'?'selected':'')+'>Pro</option></select></div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="badge '+planBadge(b.plan)+'">'+planLabel(b.plan)+'</span><span class="badge b-gray">'+(wc[b.id]||0)+' workers</span>'+(b.locations||[]).map(l=>'<span class="badge b-gray">'+l+'</span>').join('')+'</div></div>').join('');}
+window.changePlan=async(id,plan)=>{await updateDoc(doc(db,'businesses',id),{plan});showToast('Plan updated!');loadSuper();};
+window.superTab=(t,el)=>{document.querySelectorAll('#screen-super .tab-bar button').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.querySelectorAll('#screen-super .sec').forEach(s=>s.classList.remove('active'));document.getElementById('ssec-'+t).classList.add('active');if(t==='businesses')loadSuper();};
+window.addBusiness=async()=>{const name=document.getElementById('nb-name').value.trim(),aname=document.getElementById('nb-aname').value.trim(),email=document.getElementById('nb-email').value.trim(),pass=document.getElementById('nb-pass').value.trim(),l1=document.getElementById('nb-l1').value.trim(),a1=document.getElementById('nb-a1').value.trim(),l2=document.getElementById('nb-l2').value.trim(),a2=document.getElementById('nb-a2').value.trim(),plan=document.getElementById('nb-plan').value;document.getElementById('nb-err').textContent='';document.getElementById('nb-ok').style.display='none';if(!name||!aname||!email||!pass||!l1){document.getElementById('nb-err').textContent='Please fill all required fields.';return;}if(pass.length<6){document.getElementById('nb-err').textContent='Password must be 6+ characters.';return;}try{const locs=l2?[l1,l2]:[l1],ld={[l1]:{address:a1}};if(l2)ld[l2]={address:a2};const br=await addDoc(collection(db,'businesses'),{name,plan,locations:locs,locationData:ld,categories:[],requireGps:false,createdAt:serverTimestamp()});const cr=await createUserWithEmailAndPassword(auth,email,pass);await setDoc(doc(db,'users',cr.user.uid),{name:aname,email,role:'admin',status:'approved',bizId:br.id,locations:locs,createdAt:serverTimestamp()});['nb-name','nb-aname','nb-email','nb-pass','nb-l1','nb-a1','nb-l2','nb-a2'].forEach(id=>document.getElementById(id).value='');document.getElementById('nb-ok').style.display='block';loadSuper();}catch(e){document.getElementById('nb-err').textContent=e.message.includes('email-already')?'Email already in use.':e.message;}};
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));
+</script>
+</body>
+</html>
+```
 
-1. Go to **github.com/station40elkton-coder/worktrack**
-2. Click **index.html** → click the **pencil icon** (edit) → click the **three dots menu** → **"Delete file"** — actually easier: just click index.html, then the pencil, select all text, delete it, paste the new file content, then commit.
-
-OR even simpler:
-1. Click **"Add file"** → **"Upload files"**
-2. Upload this downloaded `index.html` (it will replace the old one)
-3. Click **"Commit changes"**
-
-The fix adds a 6-second timeout — if Firebase takes too long, it just shows the login screen automatically.
+Copy all of that, paste into GitHub editor, commit — done!
